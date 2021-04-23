@@ -14,14 +14,14 @@ jobs:
       matrix:
         python-version: [ 3.7 ]
     steps:
-    - uses: actions/checkoute@v2
+    - uses: actions/checkout@v2
     - run: git fetch --prune --unshallow
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
     - name: Display Python version
-      run: python -c "Import sys; print(sys.version)"
+      run: python -c "import sys; print(sys.version)"
     - name: Install dependencies
       run: |
         python -m pip install -U pip
